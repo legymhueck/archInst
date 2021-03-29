@@ -49,7 +49,9 @@ sudo pacman -S --needed --noconfirm wpa_supplicant broadcom-wl
 
 # Programme
 echo "Programme"
-sudo pacman -S --needed --noconfirm aria2 osdbattery catfish mlocate plocate gpart gparted mc rofi alacritty doublecmd-gtk2 lxappearance-gtk3 youtube-dl simplescreenrecorder simple-scan notepadqq deadbeef upower rsync
+sudo pacman -S --needed --noconfirm aria2 osdbattery catfish mlocate plocate gpart gparted mc rofi alacritty
+sudo pacman -S --needed --noconfirm doublecmd-gtk2 lxappearance-gtk3 youtube-dl simplescreenrecorder simple-scan
+sudo pacman -S --needed --noconfirm notepadqq deadbeef upower rsync discord
 
 # Keyboard shortcuts dwm
 #echo "Keyboard shortcuts dwm"
@@ -78,4 +80,4 @@ makepkg -si yay
 sudo firewall-cmd --add-service libvirt --zone=libvirt --permanent
 
 echo "YAY packages"
-yay ventoy filius jetbrains-toolbox teamviewer spotify ttf-ms-fonts
+yay -S --needed --noconfirm ventoy filius jetbrains-toolbox spotify ttf-ms-fonts
