@@ -1,0 +1,111 @@
+#echo -e -n "\x1b[\x30 q" # changes to blinking block
+#echo -e -n "\x1b[\x31 q" # changes to blinking block also
+#echo -e -n "\x1b[\x32 q" # changes to steady block
+#echo -e -n "\x1b[\x33 q" # changes to blinking underline
+#echo -e -n "\x1b[\x34 q" # changes to steady underline
+#echo -e -n "\x1b[\x35 q" # changes to blinking bar
+echo -e -n "\x1b[\x36 q" # changes to steady bar
+
+alias mci='sudo make clean install'
+alias torOn='torphantom --start'
+alias torOff='torphantom --stop'
+alias bfree='sudo btrfs filesystem usage /'
+alias bdefrag='sudo btrfs filesystem defragment -r /'
+alias bscrub='sudo btrfs scrub start /'
+alias bscrubStatus='sudo btrfs scrub status /'
+alias bbalance='sudo btrfs balance start /'
+alias bbalanceStatus='sudo btrfs balance status /'
+alias ls='ls -lsa --color=auto'
+alias p='sudo pacman -S --needed --noconfirm'
+alias pu='sudo pacman -Syu && yay -Syu'
+alias u='sudo pacman -U'
+alias keys='gpg --keyserver keys.gnupg.net --recv-keys'
+alias archiso='sudo mkarchiso -v -w /tmp/archiso-tmp /root/archlive'
+alias gitFirst='git config --global user.name "Michael Lehnen" && git config --global user.email lehnen@gymnasium-hueckelhoven.de'
+alias libvirt='sudo systemctl restart libvirtd && sudo virsh net-start default'
+alias bat='osdbattery &'
+alias 128='sudo mount -t cifs //192.168.2.4/128 /home/michael/mount/samba/128 -o username=michael,vers=2.0'
+alias df='df -h'
+alias unlock='sudo rm /var/lib/pacman/db.lck'
+alias free='free -mt'
+alias wget='wget -c'
+alias userlist='cut -d: -f1 /etc/passwd'
+alias pacman='sudo pacman --color auto'
+alias psa='ps auxf'
+alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias update-fc='sudo fc-cache -fv'
+alias hw='hwinfo --short'
+alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
+alias mirror='sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
+
+#mounting the folder Public for exchange between host and guest on virtualbox
+alias vbm='sudo /usr/local/bin/arcolinux-vbox-share'
+
+#youtube-dl
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+
+#Recent Installed Packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
+
+#Cleanup orphaned packages
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+
+#get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+#vim for important configuration files
+alias vpacman="sudo nano /etc/pacman.conf"
+alias vgrub="sudo nano /etc/default/grub"
+alias vmkinitcpio="sudo nano /etc/mkinitcpio.conf"
+alias vmirrorlist="sudo nano /etc/pacman.d/mirrorlist"
+alias vconfgrub="sudo nano /boot/grub/grub.cfg"
+
+#gpg
+#verify signature for isos
+alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+#receive the key of a developer
+alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+
+#maintenance
+alias big="expac -H M '%m\t%n' | sort -h | nl"
+
+# upload systeminfo of your computer
+alias probe="sudo -E hw-probe -all -upload"
+
+# # ex = EXtractor for all kinds of archives
+# # usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
