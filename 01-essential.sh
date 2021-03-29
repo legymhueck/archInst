@@ -2,7 +2,7 @@
 
 # Base
 echo "Base"
-sudo pacman -S --needed --noconfirm base-devel linux-firmware acpid lm_sensors libxft libxinerama bash-completion rsync htop
+sudo pacman -S --needed --noconfirm base-devel linux-firmware acpid lm_sensors libxft libxinerama bash-completion rsync htop mc
 
 echo "File Systems"
 sudo pacman -S --needed --noconfirm dosfstools mtools exfatprogs ntfs-3g udisks2 udiskie gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb 
@@ -37,4 +37,4 @@ sudo pacman -S --needed --noconfirm brightnessctl xorg-xbacklight
 
 # Assorted
 echo "Various other stuff..."
-sudo pacman -S --needed --noconfirm wmctrl xbindkeys wmctrl xdotool flameshot rofi alacritty
+sudo pacman -S --needed --noconfirm wmctrl xbindkeys wmctrl xdotool flameshot rofi alacritty lxappearance-gtk3

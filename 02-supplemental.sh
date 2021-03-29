@@ -4,6 +4,10 @@
 #echo "Internet not essential"
 #sudo pacman -S --needed --noconfirm network-manager-applet nm-connection-editor
 
+# Audio
+echo "Audio"
+sudo pacman -S --needed --noconfirm audacity
+
 # Video
 echo "Video"
 sudo pacman -S --needed --noconfirm vlc mpv handbrake mediathek
