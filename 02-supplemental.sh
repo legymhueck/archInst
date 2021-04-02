@@ -87,4 +87,4 @@ cd pikaur
 makepkg -si --noconfirm
 
 echo "YAY packages"
-pikaur -S --needed --noconfirm ventoy filius jetbrains-toolbox spotify ttf-ms-fonts
+pikaur -S --needed --noconfirm ventoy filius jetbrains-toolbox spotify ttf-ms-fonts liberica-jdk-11-full-bin
