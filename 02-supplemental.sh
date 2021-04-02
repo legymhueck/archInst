@@ -78,6 +78,13 @@ makepkg -si yay
 
 # Firewalld rules
 sudo firewall-cmd --add-service libvirt --zone=libvirt --permanent
+sudo firewall-cmd --add-port=1025-65535/tcp --permanent
+sudo firewall-cmd --add-port=1025-65535/udp --permanent
+sudo firewall-cmd --reload
+
+git clone https://aur.archlinux.org/pikaur.git
+cd pikaur
+makepkg -si --noconfirm
 
 echo "YAY packages"
-yay -S --needed --noconfirm ventoy filius jetbrains-toolbox spotify ttf-ms-fonts
+pikaur -S --needed --noconfirm ventoy filius jetbrains-toolbox spotify ttf-ms-fonts
