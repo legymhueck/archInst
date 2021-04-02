@@ -51,7 +51,7 @@ sudo pacman -S --needed --noconfirm wpa_supplicant broadcom-wl
 echo "Programme"
 sudo pacman -S --needed --noconfirm aria2 osdbattery catfish mlocate plocate gpart gparted mc rofi alacritty
 sudo pacman -S --needed --noconfirm doublecmd-gtk2 lxappearance-gtk3 youtube-dl simplescreenrecorder simple-scan
-sudo pacman -S --needed --noconfirm notepadqq deadbeef upower rsync discord
+sudo pacman -S --needed --noconfirm notepadqq deadbeef upower rsync discord python-pip
 
 # Keyboard shortcuts dwm
 #echo "Keyboard shortcuts dwm"
