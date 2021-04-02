@@ -20,16 +20,6 @@ pacstrap /mnt base linux linux-headers linux-firmware efibootmgr sudo vim btrfs-
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
-echo "[Match]
-Name=en*
-
-[Network]
-DHCP=yes
-#Address=192.168.2.11/24
-#Gateway=192.168.2.1
-#DNS=192.168.2.3
-" > /etc/systemd/network/20-wired.network
-
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 arch-chroot /mnt

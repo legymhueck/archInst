@@ -43,9 +43,20 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=/dev/sda2 rootflags=subvol=@root quiet rw" > /boot/loader/entries/arch.conf
 
-systemctl enable systemd-timesyncd systemd-homed NetworkManager
+systemctl enable systemd-timesyncd systemd-homed
 sed -i '/%wheel ALL=(ALL) ALL/s/^#//g' /etc/sudoers
 
+echo "[Match]
+Name=en*
+
+[Network]
+DHCP=yes
+#Address=192.168.2.11/24
+#Gateway=192.168.2.1
+#DNS=192.168.2.3
+" > /etc/systemd/network/20-wired.network
+
+# base udev block keyboard keymap autodetect modconf encrypt btrfs filesystems fsck
 exit
 umount -R /mnt
 

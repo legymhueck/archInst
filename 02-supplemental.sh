@@ -10,7 +10,7 @@ sudo pacman -S --needed --noconfirm audacity
 
 # Video
 echo "Video"
-sudo pacman -S --needed --noconfirm vlc mpv handbrake mediathek
+sudo pacman -S --needed --noconfirm vlc mpv handbrake mediathek libva-mesa-driver libva-intel-driver
 
 # Image
 echo "Image"
@@ -51,7 +51,7 @@ sudo pacman -S --needed --noconfirm wpa_supplicant broadcom-wl
 echo "Programme"
 sudo pacman -S --needed --noconfirm aria2 osdbattery catfish mlocate plocate gpart gparted mc rofi alacritty
 sudo pacman -S --needed --noconfirm doublecmd-gtk2 lxappearance-gtk3 youtube-dl simplescreenrecorder simple-scan
-sudo pacman -S --needed --noconfirm notepadqq deadbeef upower rsync discord python-pip
+sudo pacman -S --needed --noconfirm notepadqq deadbeef upower rsync discord python-pip libreoffice-fresh obs-studio
 
 # Keyboard shortcuts dwm
 #echo "Keyboard shortcuts dwm"
@@ -72,9 +72,9 @@ echo "Activating services"
 sudo systemctl enable fstrim.timer
 
 #YAY
-git clone https://aur.archlinux.org/yay
-cd yay
-makepkg -si yay
+#git clone https://aur.archlinux.org/yay
+#cd yay
+#makepkg -si yay
 
 # Firewalld rules
 sudo firewall-cmd --add-service libvirt --zone=libvirt --permanent
