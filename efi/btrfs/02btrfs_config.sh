@@ -43,7 +43,7 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=/dev/sda2 rootflags=subvol=@root quiet rw" > /boot/loader/entries/arch.conf
 
-systemctl enable systemd-timesyncd systemd-homed
+systemctl enable systemd-timesyncd systemd-homed systemd-networkd avahi-daemon
 sed -i '/%wheel ALL=(ALL) ALL/s/^#//g' /etc/sudoers
 
 echo "[Match]
@@ -55,6 +55,8 @@ DHCP=yes
 #Gateway=192.168.2.1
 #DNS=192.168.2.3
 " > /etc/systemd/network/20-wired.network
+
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # base udev block keyboard keymap autodetect modconf encrypt btrfs filesystems fsck
 exit

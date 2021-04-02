@@ -38,3 +38,6 @@ sudo pacman -S --needed --noconfirm brightnessctl xorg-xbacklight
 # Assorted
 echo "Various other stuff..."
 sudo pacman -S --needed --noconfirm wmctrl xbindkeys wmctrl xdotool flameshot rofi alacritty lxappearance-gtk3
+
+# Git
+git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
