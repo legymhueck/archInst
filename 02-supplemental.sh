@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Internet not essential 
 #echo "Internet not essential"
