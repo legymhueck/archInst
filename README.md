@@ -1,5 +1,5 @@
 # archInst
 
-```python{.line-numbers}
+```python= {.line-numbers}
 print("Here you'll find arch install scripts")
 ```
