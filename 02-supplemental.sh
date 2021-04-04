@@ -87,4 +87,5 @@ cd pikaur
 makepkg -si --noconfirm
 
 echo "YAY packages"
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 pikaur -S --needed --noconfirm ventoy-bin filius jetbrains-toolbox spotify ttf-ms-fonts liberica-jdk-11-full-bin
