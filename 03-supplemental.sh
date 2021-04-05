@@ -53,7 +53,7 @@ echo "Wireless"
 sudo pacman -S --needed --noconfirm wpa_supplicant broadcom-wl
 
 #Virtualisation
-sudo pacman -S --needed --noconfirmqemu libvirt virt-manager ebtables dnsmasq bridge-utils dmidecode ovmf qemu-arch-extra dnsmasq openbsd-netcat screen
+sudo pacman -S --needed --noconfirm qemu libvirt virt-manager ebtables dnsmasq bridge-utils dmidecode ovmf qemu-arch-extra dnsmasq openbsd-netcat screen
 sudo gpasswd -a michael libvirt
 sudo gpasswd -a michael kvm
 
