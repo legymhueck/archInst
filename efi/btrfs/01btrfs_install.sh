@@ -16,7 +16,7 @@ mkdir /mnt/{boot,home}
 mount -o ssd,compress=zstd:1,noatime,subvol=@home /dev/sda2 /mnt/home
 mount /dev/sda1 /mnt/boot
 
-pacstrap /mnt base linux linux-headers linux-firmware efibootmgr sudo vim btrfs-progs xdg-user-dirs git
+pacstrap /mnt base linux linux-headers linux-firmware efibootmgr sudo vim btrfs-progs xdg-user-dirs git systemd-resolvconf
 # nss-mdns
 
 genfstab -U /mnt >> /mnt/etc/fstab
