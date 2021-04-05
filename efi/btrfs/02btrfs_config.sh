@@ -43,7 +43,7 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=/dev/sda2 rootflags=subvol=@root quiet rw" > /boot/loader/entries/arch.conf
 
-systemctl enable systemd-timesyncd systemd-homed systemd-networkd systemd-resolved systemd-resolvconf
+systemctl enable systemd-timesyncd systemd-homed systemd-networkd systemd-resolved
 # NetworkManager avahi-daemon
 
 sed -i '/%wheel ALL=(ALL) ALL/s/^#//g' /etc/sudoers
