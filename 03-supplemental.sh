@@ -79,8 +79,8 @@ sudo systemctl enable fstrim.timer
 
 # Firewalld rules
 sudo firewall-cmd --add-service libvirt --zone=libvirt --permanent
-sudo firewall-cmd --add-port=1025-65535/tcp --permanent
-sudo firewall-cmd --add-port=1025-65535/udp --permanent
+sudo firewall-cmd --add-port=1025-65535/tcp --zone=libvirt --permanent
+sudo firewall-cmd --add-port=1025-65535/udp --zone=libvirt --permanent
 sudo firewall-cmd --reload
 
 git clone https://aur.archlinux.org/pikaur.git
