@@ -51,7 +51,7 @@ sudo pacman -S --needed --noconfirm wpa_supplicant broadcom-wl
 echo "Programme"
 sudo pacman -S --needed --noconfirm aria2 osdbattery catfish mlocate plocate gpart gparted mc rofi alacritty
 sudo pacman -S --needed --noconfirm doublecmd-gtk2 lxappearance-gtk3 youtube-dl simplescreenrecorder simple-scan
-sudo pacman -S --needed --noconfirm notepadqq deadbeef upower rsync discord python-pip libreoffice-fresh obs-studio
+sudo pacman -S --needed --noconfirm notepadqq deadbeef upower rsync discord python-pip libreoffice-fresh obs-studio veracrypt
 
 # Keyboard shortcuts dwm
 #echo "Keyboard shortcuts dwm"
@@ -71,11 +71,6 @@ sudo systemctl enable --now firewalld
 echo "Activating services"
 sudo systemctl enable fstrim.timer
 
-#YAY
-#git clone https://aur.archlinux.org/yay
-#cd yay
-#makepkg -si yay
-
 # Firewalld rules
 sudo firewall-cmd --add-service libvirt --zone=libvirt --permanent
 sudo firewall-cmd --add-port=1025-65535/tcp --permanent
@@ -88,4 +83,4 @@ makepkg -si --noconfirm
 
 echo "YAY packages"
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
-pikaur -S --needed --noconfirm ventoy-bin filius jetbrains-toolbox spotify ttf-ms-fonts liberica-jdk-11-full-bin brave-bin simplenote-electron-bin
+pikaur -S --needed --noconfirm ventoy-bin filius jetbrains-toolbox spotify ttf-ms-fonts liberica-jdk-11-full-bin brave-bin simplenote-electron-bin bitwarden-bin 
