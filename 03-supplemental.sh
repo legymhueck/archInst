@@ -52,6 +52,11 @@ sudo pacman -S --needed --noconfirm epdfview img2pdf xpdf cups-pdf
 echo "Wireless"
 sudo pacman -S --needed --noconfirm wpa_supplicant broadcom-wl
 
+#Virtualisation
+sudo pacman -S --needed --noconfirmqemu libvirt virt-manager ebtables dnsmasq bridge-utils dmidecode ovmf qemu-arch-extra dnsmasq openbsd-netcat screen
+sudo gpasswd -a michael libvirt
+sudo gpasswd -a michael kvm
+
 # Programme
 echo "Programme"
 sudo pacman -S --needed --noconfirm aria2 osdbattery catfish mlocate plocate gpart gparted mc rofi alacritty
