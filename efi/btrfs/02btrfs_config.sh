@@ -47,6 +47,7 @@ systemctl enable systemd-timesyncd
 systemctl enable systemd-homed
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
+systemctl enable acpid
 # NetworkManager avahi-daemon
 
 sed -i '/%wheel ALL=(ALL) ALL/s/^#//g' /etc/sudoers
