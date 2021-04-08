@@ -67,6 +67,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *roficmd[] = { "rofi", "-modi", "drun", "-show", "drun", "-line-padding", "4", "-columns", "2", "-padding", "50", "-hide-scrollbar", "-show-icons", "-drun-icon-theme", "Arc-X-D", "-font", "Droid Sans Regular 10", NULL };
 static const char *rofiwindowscmd[] = {"rofi", "-show", "window", "-line-padding", "4", "-lines", "6", "-padding", "50", "-hide-scrollbar", "-show-icons", "-drun-icon-theme", "Arc-X-D", "-font", "Droid Sans Regular 10"};
 static const char *poweroffcmd[] = { "systemctl", "poweroff", NULL };
+static const char *suspendcmd[] = { "systemctl", "suspend", NULL };
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
@@ -125,7 +126,12 @@ static Key keys[] = {
     { MODKEY,                       XK_Right,                   focusmon,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_comma,                   tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_period,                  tagmon,         {.i = +1 } },
-    { MODKEY|ShiftMask,             XK_x,                       spawn,          {.v = poweroffcmd} },
+
+
+    { MODKEY|ControlMask|ShiftMask, XK_q,                       quit,           {0} },
+    { MODKEY|ControlMask|ShiftMask, XK_x,                       spawn,          {.v = poweroffcmd} },
+    { MODKEY|ControlMask|ShiftMask, XK_s,                       spawn,          {.v = suspendcmd} },
+
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)
@@ -135,7 +141,7 @@ static Key keys[] = {
     TAGKEYS(                        XK_7,                      6)
     TAGKEYS(                        XK_8,                      7)
     TAGKEYS(                        XK_9,                      8)
-    { MODKEY|ControlMask|ShiftMask, XK_q,                       quit,           {0} },
+
 
     /* not used */
     /* { MODKEY,                       XK_space,                   setlayout,      {0} }, */ /* changed with ShiftMask */

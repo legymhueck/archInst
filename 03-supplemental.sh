@@ -96,7 +96,7 @@ echo "YAY packages"
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 pikaur -S --needed --noconfirm ventoy-bin filius jetbrains-toolbox spotify ttf-ms-fonts liberica-jdk-11-full-bin
 pikaur -S --needed --noconfirm brave-bin simplenote-electron-bin bitwarden-bin breeze-red-cursor-theme
-pikaur -S --needed --noconfirm breeze-red-cursor-theme chaotic-mirrorlist chaotic-keyring
+pikaur -S --needed --noconfirm breeze-red-cursor-theme chaotic-mirrorlist chaotic-keyring gimagereader
 
 sudo sh -c "echo '[chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist' >> /etc/pacman.conf"
