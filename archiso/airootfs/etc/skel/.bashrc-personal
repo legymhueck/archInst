@@ -6,6 +6,10 @@
 #echo -e -n "\x1b[\x35 q" # changes to blinking bar
 echo -e -n "\x1b[\x36 q" # changes to steady bar
 
+alias powersave='sudo cpupower frequency-set -g powersave'
+alias ondemand='sudo cpupower frequency-set -g ondemand'
+alias interrupts='grep . -r /sys/firmware/acpi/interrupts/gpe*'
+alias bootStick='screen qemu-system-x86_64 -enable-kvm -m 4G -bios /usr/share/edk2-ovmf/x64/OVMF_CODE.fd -drive file=/dev/sdb,format=raw'
 alias mci='sudo make clean install'
 alias torOn='torphantom --start'
 alias torOff='torphantom --stop'
@@ -15,16 +19,19 @@ alias bscrub='sudo btrfs scrub start /'
 alias bscrubStatus='sudo btrfs scrub status /'
 alias bbalance='sudo btrfs balance start /'
 alias bbalanceStatus='sudo btrfs balance status /'
+alias delGrub='sudo dd if=/dev/zero bs=446 count=1'
+alias delDisk='sudo dd if=/dev/zero bs=512 count=1'
 alias ls='ls -lsa --color=auto'
 alias p='sudo pacman -S --needed --noconfirm'
 alias pu='sudo pacman -Syu && yay -Syu'
 alias u='sudo pacman -U'
+alias v='sudo veracrypt -t --fs-options="iocharset=utf8" /run/media/michael/128GB/Documents/le /home/michael/mount/vera/'
 alias keys='gpg --keyserver keys.gnupg.net --recv-keys'
-alias archiso='sudo mkarchiso -v -w /tmp/archiso-tmp /root/archlive'
-alias gitFirst='git config --global user.name "Michael Lehnen" && git config --global user.email lehnen@gymnasium-hueckelhoven.de'
+alias archiso='sudo mkarchiso -v -w /tmp/archiso-tmp /root/archiso'
+alias gitFirst='git config --global user.name "Michael" && git config --global user.email michael@michael.de'
 alias libvirt='sudo systemctl restart libvirtd && sudo virsh net-start default'
 alias bat='osdbattery &'
-alias 128='sudo mount -t cifs //192.168.2.4/128 /home/michael/mount/samba/128 -o username=michael,vers=2.0'
+alias 15G='sudo mount -t cifs //192.168.2.4/15G /home/michael/mount/15G -o username=michael,uid=60102,gid=60102,vers=2.0'
 alias df='df -h'
 alias unlock='sudo rm /var/lib/pacman/db.lck'
 alias free='free -mt'
@@ -108,4 +115,6 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
+#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#	  exec startx
+#fi
