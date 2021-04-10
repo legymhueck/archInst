@@ -6,6 +6,7 @@
 #echo -e -n "\x1b[\x35 q" # changes to blinking bar
 echo -e -n "\x1b[\x36 q" # changes to steady bar
 
+alias cups='sudo systemctl restart --now cups'
 alias powersave='sudo cpupower frequency-set -g powersave'
 alias ondemand='sudo cpupower frequency-set -g ondemand'
 alias interrupts='grep . -r /sys/firmware/acpi/interrupts/gpe*'
