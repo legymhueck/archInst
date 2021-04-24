@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Create directories
+mkdir -p /home/michael/mount/{v128,v256,15G}
+
 # Base
 echo "Base"
 sudo pacman -S --needed --noconfirm base-devel linux-firmware acpid lm_sensors libxft libxinerama bash-completion rsync htop mc
