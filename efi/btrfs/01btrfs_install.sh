@@ -11,8 +11,9 @@ btrfs su cr /mnt/@home
 umount /mnt
 
 mount -o ssd,compress=zstd:1,noatime,subvol=@root /dev/sda2 /mnt
-mkdir /mnt/{boot,home}
+mkdir /mnt/{boot,var,home}
 
+mount -o ssd,compress=zstd:1,noatime,subvol=@var /dev/sda2 /mnt/var
 mount -o ssd,compress=zstd:1,noatime,subvol=@home /dev/sda2 /mnt/home
 mount /dev/sda1 /mnt/boot
 
