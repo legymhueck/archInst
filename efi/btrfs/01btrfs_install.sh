@@ -6,18 +6,20 @@ mkfs.vfat -F 32 -n BOOT /dev/sda1
 mkfs.btrfs -f -L ROOT /dev/sda2
 
 mount /dev/sda2 /mnt
-btrfs su cr /mnt/@root
+btrfs su cr /mnt/@
 btrfs su cr /mnt/@home
+btrfs su cr /mnt/@var
 umount /mnt
 
-mount -o ssd,compress=zstd:1,noatime,subvol=@root /dev/sda2 /mnt
+mount -o ssd,compress=zstd:1,noatime,subvol=@ /dev/sda2 /mnt
 mkdir /mnt/{boot,var,home}
 
 mount -o ssd,compress=zstd:1,noatime,subvol=@var /dev/sda2 /mnt/var
 mount -o ssd,compress=zstd:1,noatime,subvol=@home /dev/sda2 /mnt/home
 mount /dev/sda1 /mnt/boot
 
-pacstrap /mnt base linux linux-headers linux-firmware efibootmgr sudo vim btrfs-progs xdg-user-dirs git acpid systemd-resolvconf
+pacstrap /mnt base linux linux-headers linux-firmware efibootmgr sudo vim btrfs-progs xdg-user-dirs git acpid networkmanager
+# systemd-resolvconf
 # nss-mdns
 
 genfstab -U /mnt >> /mnt/etc/fstab

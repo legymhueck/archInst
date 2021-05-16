@@ -45,29 +45,30 @@ options root=/dev/sda2 rootflags=subvol=@root quiet rw" > /boot/loader/entries/a
 
 systemctl enable systemd-timesyncd
 systemctl enable systemd-homed
-systemctl enable systemd-networkd
-systemctl enable systemd-resolved
+# systemctl enable systemd-networkd
+# systemctl enable systemd-resolved
 systemctl enable acpid
-# NetworkManager avahi-daemon
+systemctl enable NetworkManager
+# avahi-daemon
 
 sed -i '/%wheel ALL=(ALL) ALL/s/^#//g' /etc/sudoers
 sed -i 'BUILDDIR=/tmp/makepkg/s/^#//g' /etc/makepkg.conf
 
 echo "tmpfs                                           /tmp                   tmpfs   rw,nodev,nosuid 0  0
-tmpfs                                           /home/michael/.cache   tmpfs   rw,nodev,nosuid 0  0
+#tmpfs                                           /home/michael/.cache   tmpfs   rw,nodev,nosuid 0  0
 " >> /etc/fstab
 
-echo "[Match]
-Name=en*
+#echo "[Match]
+#Name=en*
 
-[Network]
-DHCP=yes
-#Address=192.168.2.11/24
+#[Network]
+#DHCP=yes
+##Address=192.168.2.11/24
 #Gateway=192.168.2.1
 #DNS=192.168.2.3
-" > /etc/systemd/network/20-wired.network
+#" > /etc/systemd/network/20-wired.network
 
-ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+#ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # base udev block keymap keyboard autodetect modconf encrypt filesystems
 exit

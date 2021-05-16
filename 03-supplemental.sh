@@ -1,8 +1,11 @@
 #!/bin/sh
 
-# Internet not essential 
-#echo "Internet not essential"
-#sudo pacman -S --needed --noconfirm network-manager-applet nm-connection-editor
+# Create directories
+mkdir -p /home/michael/mount/{v128,v256,15G}
+
+ Internet not essential
+echo "Internet not essential"
+sudo pacman -S --needed --noconfirm network-manager-applet nm-connection-editor
 
 # Audio
 echo "Audio"

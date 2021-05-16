@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Create directories
-mkdir -p /home/michael/mount/{v128,v256,15G}
-
 # Base
 echo "Base"
 sudo pacman -S --needed --noconfirm base-devel linux-firmware acpid lm_sensors libxft libxinerama bash-completion rsync htop mc
@@ -33,7 +30,9 @@ sudo pacman -S --needed --noconfirm xf86-video-intel xf86-video-ati arandr
 
 # Audio
 echo "Audio"
-sudo pacman -S --needed --noconfirm pulseaudio pulseaudio-alsa pulseaudio-equalizer pulseaudio-jack alsa-firmware alsa-lib alsa-plugins alsa-utils pragha cmus libmp4v2 volumeicon playerctl
+sudo pacman -S --needed --noconfirm pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-media-session
+sudo pacman -S --needed --noconfirm pulseeffects wireplumber gst-plugin-pipewire libpipewire02
+sudo pacman -S --needed --noconfirm alsa-firmware alsa-lib alsa-plugins alsa-utils pragha cmus libmp4v2 volumeicon playerctl
 
 # MacBookAir
 sudo pacman -S --needed --noconfirm brightnessctl xorg-xbacklight
