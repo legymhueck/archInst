@@ -52,7 +52,7 @@ systemctl enable NetworkManager
 # avahi-daemon
 
 sed -i '/%wheel ALL=(ALL) ALL/s/^#//g' /etc/sudoers
-sed -i 'BUILDDIR=/tmp/makepkg/s/^#//g' /etc/makepkg.conf
+# sed -i '/BUILDDIR=/tmp/makepkg/s/^#//g' /etc/makepkg.conf
 
 echo "tmpfs                                           /tmp                   tmpfs   rw,nodev,nosuid 0  0
 #tmpfs                                           /home/michael/.cache   tmpfs   rw,nodev,nosuid 0  0

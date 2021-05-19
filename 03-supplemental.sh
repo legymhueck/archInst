@@ -1,11 +1,8 @@
 #!/bin/sh
 
-# Create directories
-mkdir -p /home/michael/mount/{v128,v256,15G}
-
- Internet not essential
-echo "Internet not essential"
-sudo pacman -S --needed --noconfirm network-manager-applet nm-connection-editor
+# Internet not essential 
+#echo "Internet not essential"
+#sudo pacman -S --needed --noconfirm network-manager-applet nm-connection-editor
 
 # Audio
 echo "Audio"
@@ -17,7 +14,7 @@ sudo pacman -S --needed --noconfirm vlc mpv handbrake mediathek libva-mesa-drive
 
 # Image
 echo "Image"
-sudo pacman -S --needed --noconfirm imagemagick gimp feh geeqie gpicview-gtk3 ristretto sxiv
+sudo pacman -S --needed --noconfirm imagemagick gimp feh geeqie gpicview ristretto sxiv
 
 # Codecs
 echo "Codecs"
@@ -43,7 +40,7 @@ sudo pacman -S --needed --noconfirm foomatic-db-gutenprint-ppds splix gutenprint
 
 # PDF
 echo "PDF"
-sudo pacman -S --needed --noconfirm epdfview img2pdf xpdf cups-pdf
+sudo pacman -S --needed --noconfirm epdfview img2pdf xpdf cups-pdf evince okular
 
 # Nextcloud
 #echo "Nextcloud"
@@ -90,16 +87,3 @@ sudo firewall-cmd --reload
 # Activating services
 echo "Activating services"
 sudo systemctl enable fstrim.timer
-
-git clone https://aur.archlinux.org/pikaur.git
-cd pikaur
-makepkg -si --noconfirm
-
-echo "YAY packages"
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
-pikaur -S --needed --noconfirm ventoy-bin filius jetbrains-toolbox spotify ttf-ms-fonts liberica-jdk-11-full-bin
-pikaur -S --needed --noconfirm brave-bin simplenote-electron-bin bitwarden-bin breeze-red-cursor-theme
-pikaur -S --needed --noconfirm breeze-red-cursor-theme chaotic-mirrorlist chaotic-keyring gimagereader
-
-sudo sh -c "echo '[chaotic-aur]
-Include = /etc/pacman.d/chaotic-mirrorlist' >> /etc/pacman.conf"
