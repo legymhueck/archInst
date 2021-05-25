@@ -41,7 +41,7 @@ editor 0" > /boot/loader/loader.conf
 echo "title ArchLinux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options root=/dev/sda2 rootflags=subvol=@root quiet rw" > /boot/loader/entries/arch.conf
+options root=/dev/sda2 rootflags=subvol=@ quiet rw" > /boot/loader/entries/arch.conf
 
 systemctl enable systemd-timesyncd
 systemctl enable systemd-homed
