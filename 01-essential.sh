@@ -18,7 +18,9 @@ sudo pacman -S --needed --noconfirm gnome-keyring libgnome-keyring libsecret pol
 # Fonts
 echo "Fonts"
 # noto-fonts
-sudo pacman -S --needed --noconfirm awesome-terminal-fonts adobe-source-sans-pro-fonts cantarell-fonts ttf-bitstream-vera ttf-dejavu ttf-droid ttf-hack ttf-inconsolata ttf-liberation ttf-roboto ttf-ubuntu-font-family tamsyn-font ttf-opensans ttf-jetbrains-mono
+sudo pacman -S --needed --noconfirm awesome-terminal-fonts adobe-source-sans-pro-fonts cantarell-fonts ttf-bitstream-vera
+sudo pacman -S --needed --noconfirm ttf-dejavu ttf-droid ttf-hack ttf-inconsolata ttf-liberation ttf-roboto
+sudo pacman -S --needed --noconfirm ttf-ubuntu-font-family tamsyn-font ttf-opensans ttf-jetbrains-mono
 
 # Internet
 echo "Internet"
@@ -42,4 +44,4 @@ echo "Various other stuff..."
 sudo pacman -S --needed --noconfirm wmctrl xbindkeys wmctrl xdotool flameshot rofi alacritty lxappearance-gtk3 samba
 
 # Git
-git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
+git config --global credential.helper /usr/lib/git-core/git-credential-libsecret gparted arch-install-scripts l3afpad
