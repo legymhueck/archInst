@@ -21,7 +21,7 @@ syslinux-install_update -iam
 passwd
 
 systemctl enable systemd-timesyncd systemd-homed NetworkManager
-sed -i '/%wheel ALL=(ALL) ALL/s/^#//g' /etc/sudoers
-
+# sed -i '/%wheel ALL=(ALL) ALL/s/^#//g' /etc/sudoers
+sed -i '/%wheel ALL=(ALL) NOPASSWD: ALL/s/^#//g' /etc/sudoers
 exit
 umount -R /mnt
