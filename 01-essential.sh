@@ -1,47 +1,132 @@
-#!/bin/sh
+#!/bin/bash
+#set -e
 
-# Base
-echo "Base"
-sudo pacman -S --needed --noconfirm base-devel linux-firmware acpid lm_sensors libxft libxinerama bash-completion rsync htop mc
+func_install() {
+  if pacman -Qi "$1" &>/dev/null; then
+    tput setaf 2
+    echo "###############################################################################"
+    echo "The package '$1' is already installed"
+    echo "###############################################################################"
+    echo
+    tput sgr0
+  else
+    tput setaf 3
+    echo "###############################################################################"
+    echo "Installing package " "$1"
+    echo "###############################################################################"
+    echo
+    tput sgr0
+    sudo pacman -S --noconfirm --needed "$1"
+  fi
+}
 
-echo "File Systems"
-sudo pacman -S --needed --noconfirm dosfstools mtools exfatprogs ntfs-3g udisks2 udiskie gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb 
+###############################################################################
+echo "Installation of sound software"
+###############################################################################
 
-#X
-echo "X"
-sudo pacman -S --needed --noconfirm xorg-server xorg-xinit xorg-xsetroot xorg-xrandr xorg-xkill xorg-xinput xorg-xrdb xf86-video-intel xf86-video-ati wmname
+list=(
+  acpid lm_sensors
+  adobe-source-sans-pro-fonts
+  alacritty
+  alsa-firmware
+  alsa-lib
+  alsa-plugins
+  alsa-utils
+  arandr
+  arch-install-scripts
+  awesome-terminal-fonts
+  base-devel
+  bash-completion
+  brightnessctl
+  cantarell-fonts
+  cmus
+  dosfstools
+  exfatprogs
+  flameshot
+  gnome-keyring
+  gnome-settings-daemon
+  gparted
+  gst-plugin-pipewire
+  gvfs
+  gvfs-afc
+  gvfs-gphoto2
+  gvfs-mtp
+  gvfs-nfs
+  gvfs-smb
+  htop
+  l3afpad
+  libgnome-keyring
+  libmp4v2
+  libpipewire02
+  libsecret
+  libxft
+  libxinerama
+  linux-firmware
+  lxappearance-gtk3
+  mc
+  mtools
+  ntfs-3g
+  pipewire
+  pipewire-alsa
+  pipewire-jack
+  pipewire-media-session
+  pipewire-pulse
+  playerctl
+  polkit-gnome
+  pragha
+  pulseeffects
+  rofi
+  rsync
+  samba
+  tamsyn-font
+  ttf-bitstream-vera
+  ttf-dejavu
+  ttf-droid
+  ttf-hack
+  ttf-inconsolata
+  ttf-jetbrains-mono
+  ttf-liberation
+  ttf-opensans
+  ttf-roboto
+  ttf-ubuntu-font-family
+  udiskie
+  udisks2
+  volumeicon
+  wireplumber
+  wmctrl
+  wmname
+  xbindkeys
+  xdotool
+  xf86-video-ati
+  xf86-video-intel
+  xorg-server
+  xorg-xbacklight
+  xorg-xinit
+  xorg-xinput
+  xorg-xkill
+  xorg-xrandr
+  xorg-xrdb
+  xorg-xsetroot
+)
 
-#Keys
-echo "Keys"
-sudo pacman -S --needed --noconfirm gnome-keyring libgnome-keyring libsecret polkit-gnome gnome-settings-daemon
+count=0
 
-# Fonts
-echo "Fonts"
-# noto-fonts
-sudo pacman -S --needed --noconfirm awesome-terminal-fonts adobe-source-sans-pro-fonts cantarell-fonts ttf-bitstream-vera
-sudo pacman -S --needed --noconfirm ttf-dejavu ttf-droid ttf-hack ttf-inconsolata ttf-liberation ttf-roboto
-sudo pacman -S --needed --noconfirm ttf-ubuntu-font-family tamsyn-font ttf-opensans ttf-jetbrains-mono
+for name in "${list[@]}"; do
+  count=$((count + 1))
+  tput setaf 3
+  echo "Installing package nr.  "$count " " "$name"
+  tput sgr0
+  func_install "$name"
+done
 
-# Internet
-echo "Internet"
-sudo pacman -S --needed --noconfirm networkmanager
+###############################################################################
 
-# Video driver
-echo "Video Driver"
-sudo pacman -S --needed --noconfirm xf86-video-intel xf86-video-ati arandr
-
-# Audio
-echo "Audio"
-sudo pacman -S --needed --noconfirm pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-media-session
-sudo pacman -S --needed --noconfirm pulseeffects wireplumber gst-plugin-pipewire libpipewire02
-sudo pacman -S --needed --noconfirm alsa-firmware alsa-lib alsa-plugins alsa-utils pragha cmus libmp4v2 volumeicon playerctl
-
-# MacBookAir
-sudo pacman -S --needed --noconfirm brightnessctl xorg-xbacklight
-
-# Assorted
-echo "Various other stuff..."
-sudo pacman -S --needed --noconfirm wmctrl xbindkeys wmctrl xdotool flameshot rofi alacritty lxappearance-gtk3 samba
+tput setaf 11
+echo "################################################################"
+echo "All packages have been installed"
+echo "################################################################"
+echo
+tput sgr0
 
 # Git
-git config --global credential.helper /usr/lib/git-core/git-credential-libsecret gparted arch-install-scripts l3afpad
+git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
