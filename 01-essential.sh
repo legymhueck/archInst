@@ -63,6 +63,7 @@ list=(
   libxinerama
   linux-firmware
   lxappearance-gtk3
+  lxterminal
   mc
   mtools
   ntfs-3g
@@ -77,6 +78,9 @@ list=(
   pulseeffects
   rofi
   rsync
+  rxvt-unicode
+  rxvt-unicode-terminfo
+  urxvt-perls
   samba
   tamsyn-font
   ttf-bitstream-vera

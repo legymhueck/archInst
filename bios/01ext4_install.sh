@@ -1,8 +1,8 @@
 loadkeys de-latin1-nodeadkeys
 
 sgdisk -o /dev/sda
-sgdisk -n 1:0:+8M -t 1:ef02 -c 1:"BIOSBOOT"   /dev/sda
-sgdisk -n 2:0:0     -t 2:8300 -c 2:"ROOT" /dev/sda
+sgdisk -n 1:0:+8M -t 1:ef02 -c 1:"BIOSBOOT" /dev/sda
+sgdisk -n 2:0:0   -t 2:8300 -c 2:"ROOT"     /dev/sda
 
 mkfs.ext4 -L ROOT /dev/sda2
 
