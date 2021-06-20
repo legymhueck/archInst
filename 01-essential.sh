@@ -67,6 +67,7 @@ list=(
   mc
   mtools
   ntfs-3g
+  noto-fonts-emoji
   pipewire
   pipewire-alsa
   pipewire-jack
@@ -74,6 +75,7 @@ list=(
   pipewire-pulse
   playerctl
   polkit-gnome
+  powerline-fonts
   pragha
   pulseeffects
   rofi
@@ -82,6 +84,7 @@ list=(
   rxvt-unicode-terminfo
   urxvt-perls
   samba
+  starship
   tamsyn-font
   ttf-bitstream-vera
   ttf-dejavu
