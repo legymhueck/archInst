@@ -1,5 +1,2 @@
-# archInst
+# Arch Linux install scripts for BIOS and UEFI
 
-```python= {.line-numbers} {highlight=1}
-print("Here you'll find arch install scripts")
-```
