@@ -78,7 +78,8 @@ list=(
   powerline-fonts
   pragha
   pulseeffects
-  rofi
+  python-pip
+  python-pygame
   rsync
   rxvt-unicode
   rxvt-unicode-terminfo
