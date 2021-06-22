@@ -1,8 +1,19 @@
+#echo -e -n "\x1b[\x30 q" # changes to blinking block
+#echo -e -n "\x1b[\x31 q" # changes to blinking block also
+#echo -e -n "\x1b[\x32 q" # changes to steady block
+#echo -e -n "\x1b[\x33 q" # changes to blinking underline
+#echo -e -n "\x1b[\x34 q" # changes to steady underline
+#echo -e -n "\x1b[\x35 q" # changes to blinking bar
+echo -e -n "\x1b[\x36 q" # changes to steady bar
+
+# source ~/.bash_profile
+
 eval "$(starship init bash)"
 # Environment variables set everywhere
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="brave"
+export PDF="mupdf"
 
 # For QT Themes
 #export QT_QPA_PLATFORMTHEME=qt5ct
@@ -12,6 +23,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
+export PATH=~/.local/bin:$PATH
+
 # zsh config dir
 export ZDOTDIR=$HOME/.config/zsh
 
@@ -20,21 +33,11 @@ export ZDOTDIR=$HOME/.config/zsh
 # swap escape and caps
 #setxkbmap -option caps:swapescape
 
-# load Xresources
-xrdb ~/.Xresources
-
 # swap keys
 #keycode 1 = Caps_Lock
 #keycode 58 = Escape
 
-#echo -e -n "\x1b[\x30 q" # changes to blinking block
-#echo -e -n "\x1b[\x31 q" # changes to blinking block also
-#echo -e -n "\x1b[\x32 q" # changes to steady block
-#echo -e -n "\x1b[\x33 q" # changes to blinking underline
-#echo -e -n "\x1b[\x34 q" # changes to steady underline
-#echo -e -n "\x1b[\x35 q" # changes to blinking bar
-echo -e -n "\x1b[\x36 q" # changes to steady bar
-
+alias s='startx'
 alias v='nvim'
 alias vi='nvim'
 alias cpuinfo='watch grep \"cpu MHz\" /proc/cpuinfo'
@@ -60,7 +63,7 @@ alias p='sudo pacman -S --needed --noconfirm'
 alias pu='sudo pacman -Syu && paru -Syu'
 alias u='sudo pacman -U'
 alias v128='sudo veracrypt -t --fs-options="iocharset=utf8" /run/media/michael/128GB/Documents/le /home/michael/mount/v128/'
-alias v256='sudo veracrypt -t --fs-options="iocharset=utf8" /run/media/michael/Le/PortableApps/0/le /home/michael/mount/v/'
+alias v256='sudo veracrypt -t --fs-options="iocharset=utf8" /run/media/michael/Le/PortableApps/0/le /home/michael/mount/v256/'
 alias keys='gpg --keyserver keys.gnupg.net --recv-keys'
 alias archiso='sudo mkarchiso -v -w /tmp/archiso-tmp /root/archiso'
 alias gitFirst='git config --global user.name "legymhueck" && git config --global user.email le.gymhueck@gmail.com'
