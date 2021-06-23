@@ -1,3 +1,6 @@
+# btrfs mount
+ˋUUID=... / btrfs rw,noatime,compress=zstd:1, ssd,space_cache,discard=async,subvolid=256,subvol=/@ 0 0
+
 # btrfsMinimal
 
 A minimal btrfs install, encrypted, grub, bios & uefi
