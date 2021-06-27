@@ -67,6 +67,7 @@ list=(
   mc
   mtools
   ntfs-3g
+  nodejs
   noto-fonts-emoji
   pipewire
   pipewire-alsa
